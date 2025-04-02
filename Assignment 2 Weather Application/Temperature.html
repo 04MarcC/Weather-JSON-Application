@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="temperature-page">
+
+    
+    <svg id="thermometer" thermometer="http://www.w3.org/2000/svg" width="120" height="120" fill="currentColor" class="bi bi-thermometer" viewBox="0 0 16 16">
+        <path d="M8 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+        <path d="M8 0a2.5 2.5 0 0 0-2.5 2.5v7.55a3.5 3.5 0 1 0 5 0V2.5A2.5 2.5 0 0 0 8 0M6.5 2.5a1.5 1.5 0 1 1 3 0v7.987l.167.15a2.5 2.5 0 1 1-3.333 0l.166-.15z"/>
+    </svg>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="Temperature.html">Temperature</a></li>
+            <li><a href="Humidity.html">Humidity</a></li>
+            <li><a href="UVIndex.html">UV Index</a></li>
+            <li><a href="WindSpeed.html">Wind Speed</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <h2>Temperature</h2>
+    <p id="temperaturedata"></p>
+    <button id="toggleTemperature">Fahrenheit</button>
+
+    <script>
+       const cityData = JSON.parse(localStorage.getItem("cityData"));
+        const temperatureElement = document.getElementById("temperaturedata");
+        const toggleButton = document.getElementById("toggleTemperature");
+        const thermometer = document.getElementById("thermometer");
+
+        if (cityData) {
+            let isCelsius = true;  
+
+            const convertToFahrenheit = (celsius) => {
+                return (celsius * 9/5) + 32;
+            };
+
+            const displayTemperature = () => {
+                if (isCelsius) {
+                    temperatureElement.innerText = `${cityData.temperatureCelsius}°C`;
+                    toggleButton.innerText = "Fahrenheit";
+                } else {
+                    const temperatureFahrenheit = convertToFahrenheit(cityData.temperatureCelsius);
+                    temperatureElement.innerText = `${temperatureFahrenheit}°F`;
+                    toggleButton.innerText = "Celsius";
+                }
+
+               
+                if (cityData.temperatureCelsius > 1) {
+                    thermometer.setAttribute('fill', 'red'); 
+                } else {
+                    thermometer.setAttribute('fill', 'white'); 
+                }
+            };
+
+            displayTemperature();
+
+            toggleButton.addEventListener("click", () => {
+                isCelsius = !isCelsius;  
+                displayTemperature();  
+            });
+        } 
+    </script>
+
+</body>
+</html>

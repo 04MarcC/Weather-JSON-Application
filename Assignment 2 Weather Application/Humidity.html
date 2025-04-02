@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humidity</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="humidity-page">
+
+    
+    <svg id="humidity-icon" width="100" height="100" fill="currentColor" class="bi bi-cloud-rain" viewBox="0 0 16 16">
+        <path d="M4.158 12.025a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317m3 0a.5.5 0 0 1 .316.633l-1 3a.5.5 0 0 1-.948-.316l1-3a.5.5 0 0 1 .632-.317m3 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317m3 0a.5.5 0 0 1 .316.633l-1 3a.5.5 0 1 1-.948-.316l1-3a.5.5 0 0 1 .632-.317m.247-6.998a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 11H13a3 3 0 0 0 .405-5.973M8.5 2a4 4 0 0 1 3.976 3.555.5.5 0 0 0 .5.445H13a2 2 0 0 1 0 4H3.5a2.5 2.5 0 1 1 .605-4.926.5.5 0 0 0 .596-.329A4 4 0 0 1 8.5 2"/>
+    </svg>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="Temperature.html">Temperature</a></li>
+            <li><a href="Humidity.html">Humidity</a></li>
+            <li><a href="UVIndex.html">UV Index</a></li>
+            <li><a href="WindSpeed.html">Wind Speed</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <h2>Humidity</h2>
+    <p id="humiditydata"></p>
+
+    <script>
+        const cityData = JSON.parse(localStorage.getItem("cityData"));
+        const humidityElement = document.getElementById("humiditydata");
+        const humidityIcon = document.getElementById("humidity-icon");
+
+        if (cityData) {
+            humidityElement.innerText = `${cityData.humidity}`;
+
+            const humidityValue = parseFloat(cityData.humidity);
+            
+            
+            if (humidityValue > 0.1) {
+                humidityIcon.setAttribute('fill', 'orange'); 
+            } else {
+                humidityIcon.setAttribute('fill', 'white'); 
+            }
+        }
+    </script>
+
+</body>
+</html>

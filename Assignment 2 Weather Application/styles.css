@@ -1,0 +1,172 @@
+body
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; 
+    margin: 0;
+    font-family :'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+
+#searchcontainer
+{
+    background-color: rgb(37, 42, 171);
+    padding: 150px;
+    border-radius: 20px;
+    margin-top: 350px;
+    position:absolute;
+}
+.indexpage
+{
+    background: linear-gradient(45deg, #49a09d, #5f2c82);
+}
+.temperature-page
+{
+    background: linear-gradient(45deg, #e5ff00, #ff00a6);
+}
+.humidity-page
+{
+    background: linear-gradient(45deg, #ff9100, #0048ff);
+}
+.uvindex-page
+{
+    background: linear-gradient(45deg, #4800ff, #ff002b);
+}
+.windspeed-page
+{
+    background: linear-gradient(45deg, #0077ff, #4dff00);
+}
+h1
+{
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 70px;
+    position: absolute;
+    
+
+}
+h2
+{
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    margin-top: 70px;
+    position: absolute;
+    
+
+}
+.navbar
+{
+    position: fixed; 
+    top: 0;
+    width:100%;
+    height:5%;
+    display:flex;
+    justify-content: center;
+    background-color: rgb(37, 42, 171);
+    
+}
+.navbar ul
+{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+.navbar a
+{
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+.navbar a:hover
+{
+    background-color: white;
+    color: blue;
+}
+.navbar li
+{
+    float: left;
+}
+button
+{
+    background-color: rgb(255, 255, 255);
+    padding: 5px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+    border: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+button:hover
+{
+    opacity:80%;
+}
+svg {
+    margin-top: 150px;  
+    position: absolute;
+    z-index: -1;
+    color:white;
+}
+#displaytemp
+{
+    margin-top: 300px;
+    font-size: 8em;
+    color: white;
+}
+#humiditydata {
+    font-size: 2em;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    
+}
+#temperaturedata {
+    font-size: 2em;
+    color: white;
+    text-align: center;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+#uvdata {
+    font-size: 2em;
+    color: white;
+    text-align: center;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+#winddata {
+    font-size: 2em;
+    color: white;
+    text-align: center;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+#toggleTemperature
+{
+   position:absolute;
+   top: 80%;
+   left: 50%;
+   transform: translate(-58%, -50%);
+   padding: 10px;
+   font-size: 2em;
+   background-color: rgb(37, 42, 171);
+   color: white;
+   
+
+ 
+}
